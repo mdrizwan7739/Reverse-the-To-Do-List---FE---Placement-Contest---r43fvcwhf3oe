@@ -1,18 +1,19 @@
 import React, { useState } from 'react'
 import '../styles/App.css';
 
-function ToDo() {
+function ToDo({todoId,createdAt}) {
   return (<tr>
     <td>
-      <p>id</p>
+      <p>{todoId}</p>
     </td>
     <td>
-      <input />
+      <input placeholder="Enter text here" />
     </td>
     <td>
-      <p>createdAt</p>
+      <p>{createdAt}</p>
     </td>
-  </tr>)
+  </tr>
+);
 }
 
 function App() {
@@ -24,12 +25,20 @@ function App() {
     createdAt: '18:00',
   }
   ]);
+  const reverseBtn=()=>{
+  setTodos([...todos].reverse());
+  };
 
   return (
     <div id="main">
-      <button>Reverse</button>
+      <button onClick={reverseBtn}>Reverse</button>
       <table>
         <tbody>
+    {
+    todos.map((todo)=>(
+    <Todo key ={todo.id} todoid ={todo.id} createdAt={todo.createdAt} />
+    ))
+  }
         </tbody>
       </table>
     </div>
