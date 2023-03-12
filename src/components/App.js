@@ -36,7 +36,7 @@ function App() {
         <tbody>
     {
     todos.map((todo)=>(
-    <ToDo key ={todo.id} todoid ={todo.id} createdAt={todo.createdAt} />
+    <ToDo key ={todo.id} todoId ={todo.id} createdAt={todo.createdAt} />
     ))
   }
         </tbody>
